@@ -54,8 +54,8 @@ ROOT_URLCONF = 'ADipIT02_CW_Hospital_Management_System_ADC8_StarBoys.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ 'ADipIT02_CW_Hospital_Management_System_ADC8_StarBoys/templates'
-            'Patient/templates'],
+        'DIRS': [ 'ADipIT02_CW_Hospital_Management_System_ADC8_StarBoys/template'
+        ,'Patient/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
