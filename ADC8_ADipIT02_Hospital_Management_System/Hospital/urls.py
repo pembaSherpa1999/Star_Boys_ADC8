@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from .views import *
 urlpatterns = [
+    path('search/',SearchPatientView ),
     path('uploadimage/',uploadImage ),
     path('uploadimage/upload', upload ),
 
