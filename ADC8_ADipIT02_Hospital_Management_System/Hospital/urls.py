@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+from .views import *
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
-urlpatterns += [
-    path('Hospital/',include('Hospital.urls')),
+    path('uploadimage/',uploadImage ),
+    path('uploadimage/upload', upload ),
+
 ]
