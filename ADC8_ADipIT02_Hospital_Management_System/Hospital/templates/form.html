@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+<body>
+    
+    <div class="content">
+        <form method="POST" action="search">
+            <!-- {% csrf_token %} -->
+                <div class="row uniform">
+                    
+                    <div class="6u 12u$(xsmall)">
+                        <input type="search" name="patient_PatientName" id="name" value="" placeholder="patient name" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <input type="search" name="patient_Patientaddress" id="name" value="" placeholder="patient address" />
+                    </div> 								
+                    <li><center><input type="submit" value="Search" /></center></li>
+                </div>
+            </form>
+            <table class="table">
+   
+                <tr>
+                    
+                    <th>patientName</th>
+                      <th>patientAddress</th>
+                     <th>patientPhoneNo</th>
+                      <th>patientAge</th>
+                      <th>patientSex</th>
+                </tr>
+                <tr> {% for patient in querySet %}
+                    
+                    <td>{{ patient.patientName }}</td>
+                      <td>{{patient.patientAddress}}</td>
+                      <td>{{patient.patientPhoneNo}}</td>
+                      <td>{{patient.patientAge}}</td>
+                      <td>{{patient.patientSex}}</td>
+                </tr>{% endfor %}
+            
+            </table>
+
+    </div>
+</body>
+    </html>

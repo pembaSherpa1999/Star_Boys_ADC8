@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Hospital'
+    'Hospital',
+
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,8 @@ ROOT_URLCONF = 'ADC8_ADipIT02_Hospital_Management_System.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['Hospital/templates'],
+        'DIRS': [ 'ADC8_ADipIT02_Hospital_Management_System/templates',
+        'Hospital/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +121,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_URL = '/templates/'
+APPEND_SLASH=False
