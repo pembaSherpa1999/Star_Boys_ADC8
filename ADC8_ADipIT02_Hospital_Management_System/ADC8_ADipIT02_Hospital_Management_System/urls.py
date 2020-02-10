@@ -16,8 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# This is the url for Hospital application!!!
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Hospitals.urls')),
 ]
+
+# This is the url for restapi application !!!
+urlpatterns = [
+    path('api/', include('restapi.urls')),
+]
+
 

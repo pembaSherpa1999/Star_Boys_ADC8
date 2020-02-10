@@ -9,7 +9,7 @@ from django.contrib.auth import authenticate, login
 import os
 from django.conf import settings
 
-# # for deleting info:
+# for deleting patients information!!!
 #delete 
 def view_patient_delete(request,ID):  
     print(ID)
@@ -23,7 +23,7 @@ def view_patient_delete(request,ID):
 def view_update(request, ID):
     return render(request,'patientupda.html')
 
-# for updating patient info:
+# for updating patients information!!!
 def view_patient_update(request, ID):
     if request.method == "POST":
         get_all = request.POST
