@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List of patient</title>
+</head>
+<body>
+    {% block content %}
+<center>
+    <h1> List of patient</h1>
+    {% for patient in patients %}
+    patientName : {{patient.patientName}} <br>
+    patientAddress: {{patient.patientAddress}} <br>
+    patientPhoneNo: {{patient.patientPhoneNo}}<br>
+    patientAge: {{patient.patientAge}}<br>
+    patientSex: {{patient.patientSex}}<br>
+</center>
+{% empty %}
+        <center>
+            <form method="POST" action="">
+                {% csrf_token %}
+                    Enter patient name:  <input type="text" name="patient_PatientName" value="{{patient.patientName}}"> <br>
+                    Enter patient address: <input type="text" name="patient_Patientaddress" value="{{patient.patientAddress}}"> <br>
+                    Enter patient phoneNo: <input type="text" name="patient_PatientphoneNo" value="{{patient.patientPhoneNo}}"> <br>
+                    Enter patient age: <input type="text" name="patient_Patientage" value="{{patient.patientAge}}"> <br>
+                    Enter patient sex: <input type="text" name="patient_Patientsex" value="{{patient.patientSex}}"> <br>
+                
+                <input type="submit" >
+            </form>
+        </center>
+    
+    {% endfor %}
+   
+{% endblock %}
+
+</body>
+</html>

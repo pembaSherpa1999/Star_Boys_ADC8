@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title> List of patient</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{% load static %}
+		<link rel="stylesheet" href={% static "assets/css/main.css" %}/>
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo">Herald Hospital Nepal</div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="/Home">Home</a></li>
+				<li><a href='/patient/'>Add Patient Detail</a></li>
+				<li><a href="/patientdata/">view Patient list</a></li>
+				<li><a href='/doctor/'>Add Doctor Detail</a></li>	
+				<li><a href="/doctordata/">view doctor list</a></li>
+				<li><a href='/appointment/'>Appointment</a></li>
+				<li><a href="/appointmentdata/">appointment details</a></li>
+				<li><a href="/bill/">Generate Bill</a></li>
+				<li><a href="/billdata/">Bill data</a></li>	
+				<li><a href="/test/">Test/operation</a></li>	
+				<li><a href="/testdata/">Test Report</a></li>
+				<li><a href="/login/">login</a></li>
+				<li><a href="/logout/">logout</a></li>
+				<li><a href="/uploadimage/">upload Image</a></li>
+				<li><a href="/image/">view Image</a></li>
+			</ul>
+		</nav>
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>Herald Hospital Nepal</p>
+						<h2> List of patient</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="inner">
+					<div class="box">
+						<div class="content">
+							<header class="align-center">
+								
+								<h2> List of Testoperation</h2>
+							</header>
+							<table>
+                               
+                                <tr>
+									<th>patientID</th>
+									<th>patientName</th>
+                                    <th>prescribeMedicine</th>
+                                    <th>prescribeTratment</th>
+                                  	<th>report</th>
+									  
+                                </tr>
+                                <tr> {% for TestOperation in TestOperation %}
+									<td>{{TestOpetation.id }}</td>
+									<td>{{TestOpetation.patientName }}</td>
+                                 	 <td>{{TestOpetation.prescribeMedicine}}</td>
+                                  	<td>{{TestOpetation.prescribeTratment}}</td>
+									  <td>{{TestOpetation.report}}</td>
+								</tr>  
+								
+                                {% empty %}
+                                There are no patient availble.
+                                {% endfor %}
+                            </table>
+									</div>
+								</form>
+							
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+						<ul class="icons">
+						<li><a href="twitter.com" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="facebook.com" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="instagram.com" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li></br>
+						<hr>
+						<h5>Office - Kathmandu - 1st Floor</h5>
+						<h5>Phone - +977-1-4134212</h5>
+						<h5>Email - support@heraldhospitalnepal.com.np </h5>
+				</div>
+					<div class="copyright">
+					&copy; Herald Hospital Nepal. All rights reserved.
+				</div>				
+			</footer>
+
+		 <!-- Scripts -->
+		 {% load static %}
+		 <script src={% static "assets/js/jquery.min.js" %}></script>
+		 {% load static %}
+		 <script src={% static "assets/js/jquery.scrollex.min.js" %}></script>
+		 {% load static %}
+		 <script src={% static "assets/js/skel.min.js" %}></script>
+		 {% load static %}
+		 <script src={% static "assets/js/util.js" %}></script>
+		 {% load static %}
+		 <script src={% static "assets/js/main.js" %}></script>
+
+	</body>
+</html>
+     
+
+
+

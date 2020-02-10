@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>herald hospitaNepal</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% load static %}
+		<link rel="stylesheet" href={% static "assets/css/main.css" %}/>
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<div class="logo"><a href=''>Herald Hospital </a></div>
+			<a href="#menu">Menu</a>
+		</header>
+
+
+		<!-- Nav -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="/Home">Home</a></li>
+				<li><a href='/patient/'>Add Patient Detail</a></li>
+				<li><a href="/patientdata/">view Patient list</a></li>
+				<li><a href='/doctor/'>Add Doctor Detail</a></li>	
+				<li><a href="/doctordata/">view doctor list</a></li>
+				<li><a href='/appointment/'>Appointment</a></li>
+				<li><a href="/appointmentdata/">appointment details</a></li>
+				<li><a href="/bill/">Generate Bill</a></li>
+				<li><a href="/billdata/">Bill data</a></li>	
+				<li><a href="/test/">Test/operation</a></li>	
+				<li><a href="/testdata/">Test Report</a></li>
+				<li><a href="/login/">login</a></li>
+				<li><a href="/logout/">logout</a></li>
+				<li><a href="/uploadimage/">upload Image</a></li>
+				<li><a href="/image/">view Image</a></li>
+			</ul>
+		</nav>
+		<!-- Banner -->
+		<section class="banner full">
+			<article>
+				{% load static %}
+				<img src={% static "images/slide1.jpg" %} alt="" />
+				</div>
+			</article>
+				<article>
+					{% load static %}
+					<img src={% static "images/slide2.jpg" %} alt="" />
+					<div class="inner">
+						<header>
+							<p>Welcome to the best Hospitalin Nepal</p>
+							<h2>Herald Hospital Pvt Ltd</h2>
+						</header>
+					</div>
+				</article>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									{% load static %}
+									<img src={% static "images/service01.jpg" %} alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>Hospital care </p>
+										<h2>About Us</h2>
+									</header>
+									<p>Herald college Nepal has been established with the main aim of providing best medical treatments with maximum care to our patients from all over the world.</p>
+									<footer class="align-center">
+										<a href="#" class="button alt">Learn More</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+                                    {% load static %}
+									<img src={% static "images/service02.jpg" %} alt="" height="380px" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>Hospital  Care</p>
+										<h2>Our Servicss</h2>
+									</header>
+									<p>We provide you the basic general dentistry along with all the multispeciality, counselling and treatments by our specialized experts.</p>
+									<footer class="align-center">
+										<a href="#" class="button alt">Learn More</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						
+						<p>Top class treatment and top quality staff. The photographs of the treatment on their website are real and show you exactly what to expect. Their fees are shown on the website and a more than reasonable especially for expatriates. If there were ten stars I would have given them ten out of ten.</p>
+						<h2>Our Reviews</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<header class="align-center">
+						<p class="special">Hospital in Kathmandu has been established with the aim of providing best dental treatment to our patients with maximum care, comfort & satisfaction.</p>
+						<h2>The Hospital Services</h2>
+					</header>
+					<div class="gallery">
+						<div>
+							<div class="image fit">
+                                {% load static %}
+								<a href="#"><img src={% static "images/11.png" %} alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+                                {% load static %}
+								<a href="#"><img src={% static "images/4.png" %} alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+                                {% load static %}
+								<a href="#"><img src={% static "images/22.png" %} alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+                                {% load static %}
+								<a href="#"><img src={% static "images/33.png" %} alt=""  /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+						<ul class="icons">
+						<li><a href="twitter.com" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="facebook.com" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="instagram.com" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li></br>
+						<hr>
+                        <h5>Office - Kathmandu - 1st Floor</h5>
+						<h5>Phone - +977-1-4134212</h5>
+						<h5>Email - support@heraldhospitalnepal.com.np </h5>
+				</div>
+					<div class="copyright">
+					&copy; Herald Hospital Nepal. All rights reserved.
+				</div>		
+			</footer>
+            <!-- Scripts -->
+            {% load static %}
+            <script src={% static "assets/js/jquery.min.js" %}></script>
+            {% load static %}
+            <script src={% static "assets/js/jquery.scrollex.min.js" %}></script>
+            {% load static %}
+            <script src={% static "assets/js/skel.min.js" %}></script>
+            {% load static %}
+            <script src={% static "assets/js/util.js" %}></script>
+            {% load static %}
+            <script src={% static "assets/js/main.js" %}></script>
+
+	</body>
+</html>

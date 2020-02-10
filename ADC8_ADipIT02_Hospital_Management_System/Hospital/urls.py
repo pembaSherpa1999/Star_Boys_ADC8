@@ -1,4 +1,4 @@
-"""ADC8_ADipIT02_Hospital_Management_System URL Configuration
+"""django_first_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -14,11 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 from .views import *
-urlpatterns = [
-    path('search/',SearchPatientView ),
-    path('uploadimage/',uploadImage ),
-    path('uploadimage/upload', upload ),
 
+urlpatterns = [
+    
+    path('',view_home),
+    path('Home',view_home),
+    
+    path('uploadimage/',view_upload),
+    path('uploadimage/upload',view_uploadImage),
+    path('image/',view_showimage),
+    
+    path('signup/',view_register_staff),
+    path('login/',view_login_staff),
+    path('logout/',view_logout),
+   
+   
 ]
