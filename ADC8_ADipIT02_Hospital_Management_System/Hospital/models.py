@@ -62,39 +62,6 @@ class patient(models.Model):
     def __str__(self):  
         return  self.patientName +""+ self.patientAddress +""+str(self.patientPhoneNo)+""+ str(self.patientAge)
     
-    def is_valid_patient(self):
-
-        return (self.patientName !=self.patientSex) and (self.patientAge >=0)
-    
-      #testing of patient
-
-    def patient_name_blank_check(self):
-        if self.patientName == "":
-            return False
-        else:
-            return True
-
-    
-    
-    def patient_patient_list_check(self):
-        list_of_patients =patient.objects.all().count()
-        return list_of_patients   
-    
-    def patient_patient_malecount_check(self):
-        patient_malecount = patient.objects.filter(patientSex__contains="male").count()
-        return patient_malecount
-
-    def patient_patient_femalecount_check(self):
-        patient_femalecount = patient.objects.filter(patientSex__contains="female").count()
-        return patient_femalecount
-    
-    def patient_address_check(self):
-        class_variables = ['KTM','POK']
-        for address in class_variables:
-            if self.patientAddress == address:
-                return True
-            else:
-                return False
 
 
 # Create your models here.
