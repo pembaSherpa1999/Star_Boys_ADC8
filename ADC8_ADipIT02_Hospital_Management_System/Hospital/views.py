@@ -1,33 +1,46 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import *
+from django.template import Template,Context
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, Http404
+from django.template import Context
+from django.contrib.auth.models import User
+from django.views.decorators.csrf import *
+from django.contrib.auth import authenticate, login
+import os
+from django.conf import settings
 
-# View function file for Update functionality
+# # for deleting info:
+#delete 
+def view_patient_delete(request,ID):  
+    print(ID)
+    patient_obj = patient.objects.get(id=ID)  
+    context_variable={
+        'patient':patient_obj
+    }
+    patient_obj.delete()
+    return render(request,'patientdelete.html',context_variable) 
 
-def update_record(request,id):
-    instance = Hospital.objects.get(id=id)
+def view_update(request, ID):
+    return render(request,'patientupda.html')
 
-    # Update the form with the data obtained above
-
-    form = HospitalForm(request.POST or None, instance=instance)
-    if form.is_valid():
-        form.save()
-        return redirect('index')
-    return render(request, 'update.html', {'form': form})
-
-
-
-# ...index.html file(Use this code in index.html page)
-
-# {#This is the loop through the Hospital db and display individual records#}
-    {% for hospital in hospitals %}
-        <li> {{ hospital.patient_first_name }} {{ hospital.patient_middle_name }} {{ hospital.patient_last_name }}  {{ hospital.patient_age }}</li>
-
-# {#this add the line below#}
-<a href="{% url 'delete' Hospital.id %}">Delete Record</a>
-
-# ...views.py file(View function for Delete)
-def delete_record(request,id):
-    # this get the object from the Hospital db
-    record = Hospital.objects.get(id=id)
-    record.delete()
-    return redirect('index')
-    
+# for updating patient info:
+def view_patient_update(request, ID):
+    if request.method == "POST":
+        get_all = request.POST
+        print(get_all)
+        get_PatientName = request.POST['patient_PatientName']
+        get_PatientAddress = request.POST['patient_Patientaddress']
+        get_PatientPhoneNo = request.POST['patient_PatientphoneNo']
+        get_PatientAge= request.POST['patient_Patientage']
+        get_PatientSex = request.POST['patient_Patientsex']
+        patient_obj = patient(patientName=get_PatientName, patientAddress= get_PatientAddress,patientPhoneNo=get_PatientPhoneNo,
+        patientAge =get_PatientAge,patientSex=get_PatientSex )
+        patient_obj.save()
+        return redirect(view_patient_lists)
+    else:
+        print(ID)
+        patient_obj = patient.objects.get(id=ID)  
+        context_variable={
+            'patient':patient_obj
+        }
+        return render(request,"patientupdate.html",context_variable)

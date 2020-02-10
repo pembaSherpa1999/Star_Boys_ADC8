@@ -18,6 +18,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('edit/<int:id>', views.update_record, name='edit'),
-    path('delete/<int:id>',views.delete_record, name='delete'),
+    path('', include('Hospitals.urls')),
 ]
+
