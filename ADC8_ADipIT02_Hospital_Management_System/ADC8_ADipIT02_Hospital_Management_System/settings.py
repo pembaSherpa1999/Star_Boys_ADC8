@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Hospital',
+    'restapi',
 
 ]
 
@@ -122,4 +123,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_URL = '/templates/'
+
 APPEND_SLASH=False
+
+# MEDIA ROOT FOR UPLOADING AND DOWNLOADING MEDIA FILE
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

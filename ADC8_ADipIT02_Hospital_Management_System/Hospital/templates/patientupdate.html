@@ -20,7 +20,7 @@
 </center>
 {% empty %}
         <center>
-            <form method="post">
+            <form method="post" action="update">
                 {% csrf_token %}
                
                     Enter patient name:  <input type="text" name="patient_PatientName" value="{{patient.patientName}}"> <br>

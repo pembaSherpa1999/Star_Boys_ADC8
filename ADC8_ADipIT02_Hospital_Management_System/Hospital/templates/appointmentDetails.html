@@ -15,22 +15,24 @@
 				<div class="logo">Herald Hospital Nepal</div>
 				<a href="#menu">Menu</a>
 			</header>
-
 		<!-- Nav -->
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="/hospital/">Home</a></li>
-				<li><a href='/hospital/patient/'>Add Patient Detail</a></li>
-				<li><a href="/hospital/patientdata/">view Patient list</a></li>
-				<li><a href='/hospital/doctor/'>Add Doctor Detail</a></li>	
-				<li><a href="/hospital/doctordata/">view doctor list</a></li>
-				<li><a href='/hospital/appointment/'>Appointment</a></li>
-				<li><a href="/hospital/appointmentdata/">appointment details</a></li>
-				<li><a href="/hospital/bill/">Generate Bill</a></li>
-				<li><a href="/hospital/billdata/">Bill data</a></li>					
-				<li><a href="/hospital/login/">login</a></li>
-				<li><a href="/hospital/signup/">Signup</a></li>
-				<li><a href="/hospital/uploadimage/">upload Image</a></li>
+				<li><a href="/Home">Home</a></li>
+				<li><a href='/patient/'>Add Patient Detail</a></li>
+				<li><a href="/patientdata/">view Patient list</a></li>
+				<li><a href='/doctor/'>Add Doctor Detail</a></li>	
+				<li><a href="/doctordata/">view doctor list</a></li>
+				<li><a href='/appointment/'>Appointment</a></li>
+				<li><a href="/appointmentdata/">appointment details</a></li>
+				<li><a href="/bill/">Generate Bill</a></li>
+				<li><a href="/billdata/">Bill data</a></li>	
+				<li><a href="/test/">Test/operation</a></li>	
+				<li><a href="/testdata/">Test Report</a></li>
+				<li><a href="/login/">login</a></li>
+				<li><a href="/logout/">logout</a></li>
+				<li><a href="/uploadimage/">upload Image</a></li>
+				<li><a href="/image/">view Image</a></li>
 			</ul>
 		</nav>
 
@@ -45,39 +47,39 @@
 			</section>
 
 		<!-- Two -->
-			<section id="two" class="wrapper style2">
-				<div class="inner">
-					<div class="box">
-						<div class="content">
-							<header class="align-center">
-								<p>Best hospital in Nepal</p>
-								<h2>Request Appointment</h2>
-							</header>
-							<form method="post" action="#">
-                                {% csrf_token %}
-									<div class="row uniform">
-										
-										<div class="6u 12u$(xsmall)">
-											<input type="text" name="customerName" id="name" value="" placeholder="Patient Name" />
-										</div>
-										<div class="6u$ 12u$(xsmall)">
-											<input type="text" name="doctorName" id="name" value="" placeholder="Doctor name" />
-										</div> 
-										<div class="6u 12u$(xsmall)">
-											<input type="text" name="Date" id="name" value="" placeholder="Date" />
-										</div>
-										<div class="6u 12u$(xsmall)">
-											<input type="text" name="Time" id="name" value="" placeholder="Time" />
-										</div>
-										<li><center><input type="submit" value="Request Appointment" /></center></li>
-
-							
+		<section id="two" class="wrapper style2">
+			<div class="inner">
+				<div class="box">
+					<div class="content">
+						<header class="align-center">
+							<p>Best hospital in Nepal</p>
+							<h2>Request Appointment</h2>
+						</header>
+						<form method="post" action="save">
+							{% csrf_token %}
+								<div class="row uniform">
+									
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="patientName" id="name" value="" placeholder="Patient Name" />
 									</div>
-								</form>
-						</div>
+									<div class="6u$ 12u$(xsmall)">
+										<input type="text" name="doctorName" id="name" value="" placeholder="Doctor name" />
+									</div> 
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="Date" id="name" value="" placeholder="Date yyyy-mm-dd" />
+									</div>
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="Time" id="name" value="" placeholder="Time HH:MM" />
+									</div>
+								<center><input type="submit" value="Request Appointment" /></center>
+
+						
+								</div>
+							</form>
 					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
 		<!-- Footer -->
 			<footer id="footer">

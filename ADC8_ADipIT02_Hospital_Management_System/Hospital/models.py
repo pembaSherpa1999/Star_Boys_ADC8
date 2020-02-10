@@ -1,19 +1,15 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
-
- 
 class StaffLog(models.Model):
-    Staffname = models.CharField(max_length=30)
+    Staffname = models.ManyToManyField(User,blank=True,related_name="user")
     email = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
      
     def __str__(self):
         return self.Staffname +""+ self.email+""+ self.password
 
-
     
-
 # Create your models here.
 class hospital(models.Model):
     Name = models.CharField(max_length=250)
@@ -23,32 +19,6 @@ class hospital(models.Model):
     def __str__(self):
         return self.Name + ""+ self.Address +""+str(self.Contact)
     
-
-
-# Create your models here.
-class Appointment(models.Model):
-    patientName = models.CharField(max_length=100)
-    doctorName = models.CharField(max_length=100)
-    Date = models.DateField(max_length=100)
-    Time = models.TimeField(auto_now_add=True, blank=True)
-    
-    
-    def __str_(self):
-        return self.Date +" "+ self.Time+""+ self.doctorName
-    
-
-
-
-
-# Create your models here.
-class Department(models.Model):
-   
-    depName = models.CharField(max_length=200)
-    doctorID = models.IntegerField()
-    
-    def __str__(self):
-        return  self.depName +""+ str(self.doctorID)
-
 
 # Create your models here.
 class doctor(models.Model):
@@ -75,7 +45,9 @@ class Nurse(models.Model):
 # Create your models here.
 
 class patientPic(models.Model):
-    profilePic =models.ImageField(upload_to ="profiles")
+    pictureName=models.CharField(max_length=25)
+    profilePic =models.ImageField(upload_to ="")
+    aboutPic=models.CharField(max_length=300)
 
 class patient(models.Model):
     patientName = models.CharField(max_length=250)
@@ -91,7 +63,61 @@ class patient(models.Model):
     def is_valid_patient(self):
 
         return (self.patientName !=self.patientSex) and (self.patientAge >=0)
-        
+    
+      #testing of patient
+
+    def patient_name_blank_check(self):
+        if self.patientName == "":
+            return False
+        else:
+            return True
+
+    
+    
+    def patient_patient_list_check(self):
+        list_of_patients =patient.objects.all().count()
+        return list_of_patients   
+    
+    def patient_patient_malecount_check(self):
+        patient_malecount = patient.objects.filter(patientSex__contains="male").count()
+        return patient_malecount
+
+    def patient_patient_femalecount_check(self):
+        patient_femalecount = patient.objects.filter(patientSex__contains="female").count()
+        return patient_femalecount
+    
+    def patient_address_check(self):
+        class_variables = ['KTM','POK']
+        for address in class_variables:
+            if self.patientAddress == address:
+                return True
+            else:
+                return False
+
+
+
+# Create your models here.
+class Appointment(models.Model):
+    patientName = models.CharField(max_length=200)
+    doctorName = models.CharField(max_length=200)
+    Date = models.DateField(max_length=100)
+    Time = models.TimeField(max_length=100)
+    
+    
+    
+    def __str_(self):
+        return  self.patientName +" "+ self.Date +" "+ self.Time+""+ self.doctorName
+    
+
+
+# Create your models here.
+class Department(models.Model):
+    depName = models.CharField(max_length=200)
+    doctorID = models.IntegerField()
+    
+    def __str__(self):
+        return  self.depName +""+ str(self.doctorID)
+
 
 
 # Create your models here.
@@ -124,9 +150,8 @@ class Rooms(models.Model):
 
 # Create your models here.
 class TestOperation(models.Model):
-    PatientID = models.IntegerField(max_length=12)
-    PatientName = models.CharField(max_length=254)
-    Sex=models.CharField(max_length=254)
+    PatientID = models.CharField(max_length=254)
+    PatientName =models.CharField(max_length=254)
     prescribeMedicine = models.CharField(max_length=254)
     prescribeTratment = models.CharField(max_length=200)
     report = models.CharField(max_length=200)

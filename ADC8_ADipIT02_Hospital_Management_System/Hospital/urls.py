@@ -20,11 +20,14 @@ from .views import *
 urlpatterns = [
     
     path('',view_home),
+    path('Home',view_home),
     path('patient/',view_patient),
     path('patient/save',view_patientdata_save),
     path('patientdata/',view_patient_lists),
-    path('patientdata/patientdelete/<int:ID>',view_patient_delete),
-    path('patientdata/patientupdate/<int:ID>',view_patient_update),
+    
+    path('patientdelete/<int:ID>',view_patient_delete),
+    path('patientupdate/<int:ID>',view_update),
+    path('patientupdate/save',view_patient_update),
 
     path('doctor/',view_add_doctor_detail),
     path('doctor/save',view_doctordata_save),
@@ -41,14 +44,15 @@ urlpatterns = [
     path('uploadimage/',view_upload),
     path('uploadimage/upload',view_uploadImage),
     path('image/',view_showimage),
-
+    
     path('signup/',view_register_staff),
     path('login/',view_login_staff),
     path('logout/',view_logout),
     
     path('test/',view_Testoperation_details),
     path('test/save', view_testdata_save),
-    path('testdata/', view_test_lists),
+    path('testdata/',view_test_lists),
+    path('search/', view_search_page),
    
    
 ]
