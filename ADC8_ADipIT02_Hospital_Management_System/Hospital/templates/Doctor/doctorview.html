@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Appointment</title>
+		<title> List of doctor</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		{% load static %}
@@ -15,33 +15,33 @@
 				<div class="logo">Herald Hospital Nepal</div>
 				<a href="#menu">Menu</a>
 			</header>
-		<!-- Nav -->
-		<nav id="menu">
-			<ul class="links">
-				<li><a href="/Home">Home</a></li>
-				<li><a href='/patient/'>Add Patient Detail</a></li>
-				<li><a href="/patientdata/">view Patient list</a></li>
-				<li><a href='/doctor/'>Add Doctor Detail</a></li>	
-				<li><a href="/doctordata/">view doctor list</a></li>
-				<li><a href='/appointment/'>Appointment</a></li>
-				<li><a href="/appointmentdata/">appointment details</a></li>
-				<li><a href="/bill/">Generate Bill</a></li>
-				<li><a href="/billdata/">Bill data</a></li>	
-				<li><a href="/test/">Test/operation</a></li>	
-				<li><a href="/testdata/">Test Report</a></li>
-				<li><a href="/login/">login</a></li>
-				<li><a href="/logout/">logout</a></li>
-				<li><a href="/uploadimage/">upload Image</a></li>
-				<li><a href="/image/">view Image</a></li>
-			</ul>
-		</nav>
 
+			<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="/Home">Home</a></li>
+					<li><a href='/patient/'>Add Patient Detail</a></li>
+					<li><a href="/patientdata/">view Patient list</a></li>
+					<li><a href='/doctor/'>Add Doctor Detail</a></li>	
+					<li><a href="/doctordata/">view doctor list</a></li>
+					<li><a href='/appointment/'>Appointment</a></li>
+					<li><a href="/appointmentdata/">appointment details</a></li>
+					<li><a href="/bill/">Generate Bill</a></li>
+					<li><a href="/billdata/">Bill data</a></li>	
+					<li><a href="/test/">Test/operation</a></li>	
+					<li><a href="/testdata/">Test Report</a></li>
+					<li><a href="/login/">login</a></li>
+					<li><a href="/logout/">logout</a></li>
+					<li><a href="/uploadimage/">upload Image</a></li>
+					<li><a href="/image/">view Image</a></li>
+				</ul>
+			</nav>
 		<!-- One -->
 			<section id="One" class="wrapper style3">
 				<div class="inner">
 					<header class="align-center">
 						<p>Herald Hospital Nepal</p>
-						<h2>search</h2>
+						<h2> List of doctor</h2>
 					</header>
 				</div>
 			</section>
@@ -53,18 +53,32 @@
 						<div class="content">
 							<header class="align-center">
 								<p>Best hospital in Nepal</p>
-								<h2>search patient list</h2>
-							</header>
-                            <form method='POST' action="">
-                                {% csrf_token %}
-                                <div class="search-bar">
-                                    <input type="text" placeholder="Enter Full Student Name ..." name="search" >
-                                    <input class="btn" type="submit" value="search" />
-                                </div>
-							</form><font color="red" >please enter the name or initial letter of name of patient that you are intented to search ....</font>
-							<br><br>
-                            </div>
-                        
+								<h2> List of doctor </h2>
+								</header>
+                              <table>
+                               
+                                <tr>
+									<th>Doctor ID</th>
+									<th>Doctor Name</th>
+                                  	<th>Doctor Address</th>
+                                 	<th>Doctor PhoneNo</th>
+                                  	<th>Department</th>
+                                  	<th>Education</th>
+                                </tr>
+                                <tr>  {% for doctor in doctors %}
+									<td>{{doctor.id}}</td>
+									<td>{{doctor.Name}}</td>
+                                  	<td>{{doctor.Address}}</td>
+                                 	 <td>{{doctor.Contact}}</td>
+                                  	<td> {{doctor.department}}</td>
+                                  	<td>{{doctor.education}}</td>
+                                </tr>
+                                {% empty %}
+							There are no patient availble.
+							{% endfor %}
+                            </table>
+						
+					
 						</div>
 					</div>
 				</div>
@@ -102,5 +116,5 @@
 
 	</body>
 </html>
-    
- 
+     
+

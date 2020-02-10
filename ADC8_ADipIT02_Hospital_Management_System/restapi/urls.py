@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import *
 
-# this is the url of restapi app
 urlpatterns = [
     path('patients/',view_get_post_patient),
     path('patients/<int:ID>',view_getByID_updateByID_deleteByID),

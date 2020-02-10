@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Appointment</title>
+		<title>uploadimage</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		{% load static %}
@@ -15,6 +15,7 @@
 				<div class="logo">Herald Hospital Nepal</div>
 				<a href="#menu">Menu</a>
 			</header>
+
 		<!-- Nav -->
 		<nav id="menu">
 			<ul class="links">
@@ -35,13 +36,12 @@
 				<li><a href="/image/">view Image</a></li>
 			</ul>
 		</nav>
-
 		<!-- One -->
 			<section id="One" class="wrapper style3">
 				<div class="inner">
 					<header class="align-center">
 						<p>Herald Hospital Nepal</p>
-						<h2>search</h2>
+						<h2>upload image</h2>
 					</header>
 				</div>
 			</section>
@@ -53,18 +53,25 @@
 						<div class="content">
 							<header class="align-center">
 								<p>Best hospital in Nepal</p>
-								<h2>search patient list</h2>
+								<h2>upload image</h2>
 							</header>
-                            <form method='POST' action="">
+							<form method="post" action="upload" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <div class="search-bar">
-                                    <input type="text" placeholder="Enter Full Student Name ..." name="search" >
-                                    <input class="btn" type="submit" value="search" />
-                                </div>
-							</form><font color="red" >please enter the name or initial letter of name of patient that you are intented to search ....</font>
-							<br><br>
-                            </div>
-                        
+									<div class="row uniform">
+										<div class="6u 12u$(xsmall)">
+											<input type="text" name="name"id="name" value="" placeholder="name of image" />
+										</div>
+										<div class="6u 12u$(xsmall)">
+											<input type="file" name="patient image" id="name" value="" placeholder="select image" />
+										</div>
+										<div class="12u$">
+											<textarea name="about image" id="message" placeholder="describe about picture" rows="6"></textarea>
+										</div>
+									
+										<li><input type="submit" value="Upload Image" /></li>
+										
+									</div>
+								</form>
 						</div>
 					</div>
 				</div>
@@ -102,5 +109,4 @@
 
 	</body>
 </html>
-    
- 
+     

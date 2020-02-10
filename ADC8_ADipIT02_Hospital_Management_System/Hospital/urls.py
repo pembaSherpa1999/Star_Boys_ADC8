@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from .views import *
 
-# this is the url of Hospital of all views
 urlpatterns = [
     
     path('',view_home),
@@ -27,9 +26,8 @@ urlpatterns = [
     path('patientdata/',view_patient_lists),
     
     path('patientdelete/<int:ID>',view_patient_delete),
-    path('patientupdate/<int:ID>',view_update),
-    path('patientupdate/save',view_patient_update),
-
+    path('update/<int:ID>',view_patient_update),
+    
     path('doctor/',view_add_doctor_detail),
     path('doctor/save',view_doctordata_save),
     path('doctordata/',view_doctor_lists),

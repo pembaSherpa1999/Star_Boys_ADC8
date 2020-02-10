@@ -15,6 +15,8 @@
 				<div class="logo">Herald Hospital Nepal</div>
 				<a href="#menu">Menu</a>
 			</header>
+
+	
 		<!-- Nav -->
 		<nav id="menu">
 			<ul class="links">
@@ -35,40 +37,60 @@
 				<li><a href="/image/">view Image</a></li>
 			</ul>
 		</nav>
-
 		<!-- One -->
 			<section id="One" class="wrapper style3">
 				<div class="inner">
 					<header class="align-center">
 						<p>Herald Hospital Nepal</p>
-						<h2>search</h2>
+						<h2>Add Patient</h2>
 					</header>
 				</div>
 			</section>
 
 		<!-- Two -->
-			<section id="two" class="wrapper style2">
-				<div class="inner">
-					<div class="box">
-						<div class="content">
-							<header class="align-center">
-								<p>Best hospital in Nepal</p>
-								<h2>search patient list</h2>
-							</header>
-                            <form method='POST' action="">
-                                {% csrf_token %}
-                                <div class="search-bar">
-                                    <input type="text" placeholder="Enter Full Student Name ..." name="search" >
-                                    <input class="btn" type="submit" value="search" />
-                                </div>
-							</form><font color="red" >please enter the name or initial letter of name of patient that you are intented to search ....</font>
-							<br><br>
-                            </div>
-                        
-						</div>
+		<section id="two" class="wrapper style2">
+			<div class="inner">
+				<div class="box">
+					<div class="content">
+						<header class="align-center">
+							<p>Best hospital in Nepal</p>
+							<h2>Add Patient </h2>
+						</header>
+						<form method="post" action="save">
+							{% csrf_token %}
+							<div class="row uniform">
+									
+								<div class="6u 12u$(xsmall)">
+										<input type="text" name="patient_PatientName" id="name" value="" placeholder="patient name" />
+									</div>
+									<div class="6u$ 12u$(xsmall)">
+										<input type="text" name="patient_Patientaddress" id="name" value="" placeholder="patient address" />
+									</div> 
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="patient_PatientphoneNo" id="name" value="" placeholder="patient phoneNo" />
+									</div>
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="patient_Patientage" id="name" value="" placeholder="patient age" />
+									</div>
+									<!-- Break -->
+									<div class="12u$">
+										<div class="select-wrapper">
+											<select name="patient_Patientsex" id="category">
+												<option value="">- Gender -</option>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
+											</select>
+										</div>
+									</div>
+									<center><input type="submit" value="Add Patient" /></center>
+
+						
+								</div>
+							</form>
 					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -102,5 +124,6 @@
 
 	</body>
 </html>
-    
- 
+     
+
+

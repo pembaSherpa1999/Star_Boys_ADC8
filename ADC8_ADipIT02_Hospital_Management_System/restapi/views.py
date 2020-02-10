@@ -4,9 +4,6 @@ from Hospital.models import patient
 import json
 
 
-# Function for getting patients information using "GET"
-# Function for Creating patients information using "POST"
-
 @csrf_exempt
 def view_get_post_patient(request):
     print("What's the request => ",request.method)
@@ -44,10 +41,8 @@ def view_get_post_patient(request):
     else:
         return HttpResponse("Other HTTP verbs testing")
 
-# Function for getting patients information through ID
-# Function for updating patients information through ID
-# Function for deleting patients information through ID
 @csrf_exempt
+#method for get uodate and delete data with help of id
 def view_getByID_updateByID_deleteByID(request,ID):
     print("What's the request =>",request.method)
     if request.method == "GET":
@@ -64,14 +59,14 @@ def view_getByID_updateByID_deleteByID(request,ID):
         return JsonResponse({
         "message":" Other htpp verbs Testing"
         }) 
-    # Deletion
+    
     elif request.method =="DELETE":
         patients = patient.objects.get(id = ID)
         patients.delete()
         return JsonResponse({
             "message":"Successfully deleted!!"
         })
-    # Updating
+
     elif request.method == "PUT":
         update = json.loads(request.body)
         patients = patient.objects.get(id = ID)
@@ -89,10 +84,9 @@ def view_getByID_updateByID_deleteByID(request,ID):
         "message":" Other htpp verbs Testing"
         })
 
-# Function for pagination
-
 @csrf_exempt
-def view_patient_pagination(request,CONTENT_NUMBER, PAGENO):
+#pagination to show number of file according to pagenumber
+def view_patient_pagination(request,CONTENT_NUMBER,PAGENO):
     if request.method == 'GET':
         first = ((PAGENO -1)* CONTENT_NUMBER)# determine which is the first content that is required to show in page
         last = first + CONTENT_NUMBER#determine the last content that is required to show in page

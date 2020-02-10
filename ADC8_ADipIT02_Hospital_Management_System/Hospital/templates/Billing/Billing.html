@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		{% load static %}
 		<link rel="stylesheet" href={% static "assets/css/main.css" %}/>
+		
 	</head>
 	<body class="subpage">
 
@@ -15,6 +16,8 @@
 				<div class="logo">Herald Hospital Nepal</div>
 				<a href="#menu">Menu</a>
 			</header>
+
+	
 		<!-- Nav -->
 		<nav id="menu">
 			<ul class="links">
@@ -35,13 +38,12 @@
 				<li><a href="/image/">view Image</a></li>
 			</ul>
 		</nav>
-
 		<!-- One -->
 			<section id="One" class="wrapper style3">
 				<div class="inner">
 					<header class="align-center">
 						<p>Herald Hospital Nepal</p>
-						<h2>search</h2>
+						<h2>create Bill</h2>
 					</header>
 				</div>
 			</section>
@@ -53,18 +55,29 @@
 						<div class="content">
 							<header class="align-center">
 								<p>Best hospital in Nepal</p>
-								<h2>search patient list</h2>
+								<h2>create Bill</h2>
 							</header>
-                            <form method='POST' action="">
+							<form method="post" action="save">
                                 {% csrf_token %}
-                                <div class="search-bar">
-                                    <input type="text" placeholder="Enter Full Student Name ..." name="search" >
-                                    <input class="btn" type="submit" value="search" />
-                                </div>
-							</form><font color="red" >please enter the name or initial letter of name of patient that you are intented to search ....</font>
-							<br><br>
-                            </div>
-                        
+									<div class="row uniform">
+										
+										<div class="6u 12u$(xsmall)">
+											<input type="text" name="BillNO" id="name" value="" placeholder="Bill NO" />
+										</div>
+										<div class="6u$ 12u$(xsmall)">
+											<input type="text" name="PatientName" id="name" value="" placeholder="patient Name" />
+										</div>
+										<br>
+										<dev class="6u$ 12u$(xsmall)">
+											<input type="text" name="Amount" id="name" value="" placeholder="Total Amount" />
+										<br>
+									</dev>
+											<br>
+										<li><input class='btn'type="submit" value="Make Payment" /></li>
+
+							
+									</div>
+								</form>
 						</div>
 					</div>
 				</div>
@@ -102,5 +115,7 @@
 
 	</body>
 </html>
-    
- 
+     
+
+
+

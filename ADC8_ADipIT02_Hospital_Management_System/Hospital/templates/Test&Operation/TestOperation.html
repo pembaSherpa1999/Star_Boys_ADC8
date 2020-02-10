@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Appointment</title>
+		<title>Operation Report</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		{% load static %}
@@ -15,6 +15,7 @@
 				<div class="logo">Herald Hospital Nepal</div>
 				<a href="#menu">Menu</a>
 			</header>
+
 		<!-- Nav -->
 		<nav id="menu">
 			<ul class="links">
@@ -41,7 +42,7 @@
 				<div class="inner">
 					<header class="align-center">
 						<p>Herald Hospital Nepal</p>
-						<h2>search</h2>
+						<h2>Test  Report</h2>
 					</header>
 				</div>
 			</section>
@@ -53,18 +54,42 @@
 						<div class="content">
 							<header class="align-center">
 								<p>Best hospital in Nepal</p>
-								<h2>search patient list</h2>
+								<h2>Test Report </h2>
 							</header>
-                            <form method='POST' action="">
-                                {% csrf_token %}
-                                <div class="search-bar">
-                                    <input type="text" placeholder="Enter Full Student Name ..." name="search" >
-                                    <input class="btn" type="submit" value="search" />
+							<form method="post" action="save">
+								{% csrf_token %}
+								
+							<div class="row uniform">
+								<div class="6u 12u$(xsmall)">
+                                    <input type="text" name="patientID" id="name" value="" placeholder="patient id" />
+								</div>
+								<div class="6u 12u$(xsmall)">
+                                    <input type="text" name="patientName" id="name" value="" placeholder="patient name" />
+								</div>
+								
+                                <div class="6u 12u$(xsmall)">
+                                    <input type="text" name="patientPrescribeMedicine" id="name" value="" placeholder="Prescribe Medicine" />
                                 </div>
-							</form><font color="red" >please enter the name or initial letter of name of patient that you are intented to search ....</font>
-							<br><br>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <input type="text" name="patientPrescribeTreatment" id="name" value="" placeholder="Prescribe Treatment" />
+								</div>
+							
+                                <!-- Break -->
+                                <div class="12u$">
+                                    <textarea name="patientReport" id="message" placeholder="Report from treatement" rows="6"></textarea>
+								</div>
+							</div>
+							<br>
+                                <!-- Break -->
+                                <div class="12u$">
+                                    <ul class="actions">
+                                        <input type="submit" value="SEND" />
+                                        <input type="reset" value="Reset" class="alt" />
+                                    </ul>
+                                </div>
                             </div>
-                        
+						
+								</form>
 						</div>
 					</div>
 				</div>
@@ -102,5 +127,22 @@
 
 	</body>
 </html>
+     
+
+
+
+<form action="save" method="post">
+    {% csrf_token %}
+    Enter patientID:  <input type="text" name="patientID"><br>
+    Enter patientName:           <input type="text" name="patientName"><br>
+    Enter Sex:            <input type="text" name="patientSex"><br>
+    Enter Report: <input type="text" name="patientReport"><br>
+    Enter PrescribeMedicine: <input type="text" name="patientPrescribeMedicine"><br>
+    Enter prescribeTreatment: <input type="text" name="patientPrescribeTreatment"><br>
+    <input type="submit" >
+</form>
+</center>
+
     
- 
+</body>
+</html>

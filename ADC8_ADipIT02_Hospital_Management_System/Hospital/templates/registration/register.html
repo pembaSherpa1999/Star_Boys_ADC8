@@ -8,6 +8,16 @@
 		{% load static %}
 		<link rel="stylesheet" href={% static "assets/css/main.css" %}/>
 	</head>
+	<style>
+		.signup{
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+	.btn{
+		margin-left: 45%;
+		margin-right: 45%;
+	}
+		</style>
 	<body class="subpage">
 
 		<!-- Header -->
@@ -15,6 +25,7 @@
 				<div class="logo">Herald Hospital Nepal</div>
 				<a href="#menu">Menu</a>
 			</header>
+
 		<!-- Nav -->
 		<nav id="menu">
 			<ul class="links">
@@ -41,7 +52,7 @@
 				<div class="inner">
 					<header class="align-center">
 						<p>Herald Hospital Nepal</p>
-						<h2>search</h2>
+						<h2>Sign Up</h2>
 					</header>
 				</div>
 			</section>
@@ -53,18 +64,22 @@
 						<div class="content">
 							<header class="align-center">
 								<p>Best hospital in Nepal</p>
-								<h2>search patient list</h2>
+								<h2>sign up</h2>
 							</header>
-                            <form method='POST' action="">
+							<form method="post" action="">
                                 {% csrf_token %}
-                                <div class="search-bar">
-                                    <input type="text" placeholder="Enter Full Student Name ..." name="search" >
-                                    <input class="btn" type="submit" value="search" />
-                                </div>
-							</form><font color="red" >please enter the name or initial letter of name of patient that you are intented to search ....</font>
-							<br><br>
-                            </div>
-                        
+									<div class="signup">
+										
+										
+											<input type="text" name="input_username" id="name" value="" placeholder="User Name" />
+											<br><input type="email" name="email" id="name" value="" placeholder="email" />
+										  	<br><input type="password" name="input_password" id="name" value="" placeholder="Password" />
+											<br><input type="text" name="is_staff" id="name" value="" placeholder="staff or not" />
+                                            <br><input class="btn" type="submit" value="Sign Up" />
+
+							
+									</div>
+								</form>
 						</div>
 					</div>
 				</div>
@@ -102,5 +117,4 @@
 
 	</body>
 </html>
-    
- 
+  
