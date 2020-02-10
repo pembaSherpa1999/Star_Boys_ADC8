@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from .views import *
 
+# this is the url of Hospital of all views
 urlpatterns = [
     
     path('',view_home),

@@ -19,14 +19,17 @@ from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# this is the default django page
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
+# this is urls of Hospital application
 urlpatterns += [
     path('', include('Hospital.urls')),
 ]
 
+# this is the url for restapi application
 urlpatterns += [
     path('api/', include('restapi.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

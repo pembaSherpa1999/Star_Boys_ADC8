@@ -47,6 +47,7 @@ def view_patient_lists(request):
     return render(request,'patientview.html',context_variable)
      
 
+# Functionality of adding doctor information
 def view_add_doctor_detail(request):
     return render(request, 'doctorDetail.html')
 
@@ -65,6 +66,8 @@ def view_doctordata_save(request):
     else:
         return HttpResponse("error occured")
 
+# Functionality of viewing doctor information
+
 def view_doctor_page(request):
     return render(request,'doctorDetail.html')
 
@@ -76,7 +79,7 @@ def view_doctor_lists(request):
     }
     return render(request,'doctorview.html',context_variable)
 
-# # for deleting info:
+# for deleting info:
 #delete 
 def view_patient_delete(request,ID):  
     print(ID)
@@ -144,6 +147,8 @@ def get_data_queryset(query=None):
     else:
         return HttpResponse("error occured")
 
+# Functionality of creating appointment details
+
 def view_appointment_details(request):
     return render(request,'appointmentDetails.html')
 
@@ -162,7 +167,8 @@ def view_appointment_save(request):
     else:
         return HttpResponse("error occured")
 
-
+# Functionality of viewing appointment details
+# 
 def view_appointment_page(request):
     return render(request,'appointmentDetail.html')
 
@@ -175,7 +181,8 @@ def view_appointment_lists(request):
     return render(request,'appointmentview.html',context_variable)
      
 
-
+# Functionality of creating bills details
+# 
 def view_billing_details(request):
     return render(request,'Billing.html')
 
@@ -193,6 +200,7 @@ def view_billdata_save(request):
     else:
         return HttpResponse("error occured")
 
+# Functionality of viewing bills details
 
 def view_bill_page(request):
     return render(request,'Billing.html')
@@ -207,6 +215,7 @@ def view_bill_lists(request):
      
 
 
+# Functionality of creating Testoperation details
 
 def view_Testoperation_details(request):
     return render(request,'TestOperation.html')
@@ -226,7 +235,8 @@ def view_testdata_save(request):
     else:
         return HttpResponse("error occured")
 
-
+# Functionality of viewing Testoperation details
+# 
 def view_test_page(request):
     return render(request,'TestOperation.html')
 
@@ -253,11 +263,13 @@ def view_uploadImage(request):
     patient.save()
     return render(request, 'upload.html')
 
+# Function for showing images
 def view_showimage(request):
     patient1=patientPic.objects.all()
     return render(request, 'images.html', {'patient':patient1})
 
 
+# Function for registration
 def view_register_staff(request):
     if request.method =="GET":
         return render(request,'register.html')
@@ -266,7 +278,7 @@ def view_register_staff(request):
         staff = User.objects.create_user(username=request.POST['input_username'],email=request.POST['email'],password=request.POST['input_password'],is_staff=request.POST['is_staff'])
         staff.save()
         return render(request,'register.html')
-
+# Function for Login
 def view_login_staff(request):
     print(request.POST)
     if request.method =="GET":
@@ -280,6 +292,8 @@ def view_login_staff(request):
             return render(request,"index.html")
         else:
             return HttpResponse("Authentication Failed")  
+
+# Function for Logout
 
 def view_logout(request):
     return redirect(view_login_staff)
